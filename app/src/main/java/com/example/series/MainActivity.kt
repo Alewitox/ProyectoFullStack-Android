@@ -22,14 +22,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
         val background = object : Thread() {
             override fun run() {
                 try {
 
                     sleep(4000)
 
-                    val intent = Intent(baseContext, TabLayout::class.java)
+                    val intent = Intent(baseContext, HomeActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
