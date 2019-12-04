@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
                     sleep(4000)
 
-                    val intent = Intent(baseContext, SeriesListActivity::class.java)
+                    val intent = Intent(baseContext, TabLayout::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
