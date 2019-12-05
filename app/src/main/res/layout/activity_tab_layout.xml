@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_gravity="start"
+        android:background="@color/FragmentHeader"
         android:id="@+id/appbarid">
 
         <LinearLayout
@@ -23,7 +24,8 @@
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:src="@drawable/ryan" />
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/jackryan" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -36,6 +38,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:textStyle="bold"
+                    android:textColor="#ffffff"
                     android:text="2018    1 hora" />
 
 
@@ -47,6 +50,7 @@
                     android:layout_marginLeft="15dp"
                     android:text="Jack Ryan"
                     android:textStyle="bold"
+                    android:textColor="#ffffff"
                     android:textSize="25sp" />
 
                 <TextView
@@ -54,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="15dp"
+                    android:textColor="#ffffff"
                     android:text="Acción y aventura, drama, guerra y política" />
 
 
@@ -69,11 +74,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:tabGravity="fill"
-        app:tabIndicatorColor="#ffffff"
+        app:tabIndicatorColor="@color/TabIndicator"
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
         app:tabTextColor="#ffffff"
-        android:background="@color/colorPrimary" />
+        android:background="@color/FragmentTabs" />
 
 
 

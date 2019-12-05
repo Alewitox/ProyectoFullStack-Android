@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#121212</color>
+    <color name="colorPrimaryDark">#121212</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorMain">#121212</color>
     <color name="colorLoginButton">#EC110A</color>
+    <color name="informationFragment">#FEF2EF</color>
+    <color name="informationFragment2">#EDEDED</color>
+    <color name="FragmentHeader">#121212</color>
+    <color name="FragmentTabs">#686A65</color>
+    <color name="TabIndicator">#E09F87</color>
+
+
 </resources>
