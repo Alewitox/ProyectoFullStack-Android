@@ -11,10 +11,11 @@
         android:orientation="vertical" >
 
         <TextView
+            android:id="@+id/seasonnumberid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:text="Temporada 1" />
 
     </LinearLayout>
@@ -25,26 +26,44 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/episodenumberid"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:background="@drawable/episode_number_square"
             android:text="1" />
 
         <TextView
+            android:id="@+id/episodedateid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="60dp"
             android:textColor="@color/episodesDate"
-            android:text="30 de agosto de 2018" />
+            android:text="30 agosto 2018" />
 
         <TextView
+            android:id="@+id/episodetitleid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="60dp"
             android:text="Cargamento" />
+
+        <TextView
+            android:id="@+id/episoderatingid"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/episode_rating_circle"
+            android:drawableLeft="@android:drawable/star_off"
+            android:textColor="#ffffff"
+            android:text="7.4" />
 
 
     </LinearLayout>
@@ -55,11 +74,12 @@
         android:orientation="vertical" >
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/episodedescriptionid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="95dp"
             android:text="En el primer episodio de la serie, el analista de la CIA Jack Ryan descubre una serie de transferencias de dinero sospechosas que lo llevan, junto a su jefe James Greer, a salir de su despacho para investigar sobre el terreno una grave amenaza a nivel mundial. Hanin comienza a sospechar de los asuntos que su marido se trae entre manos cuando recibe en casa a un misterioso extranjero." />
 
     </LinearLayout>
