@@ -21,12 +21,12 @@ class HomeActivity : AppCompatActivity() {
         series.add(Series("Javier", "Santana","", ""))
         series.add(Series("Olga", "Cruz","", ""))
         //2º) Uso un RecyclerView para mostrar un conjunto de items en general.
-        val recyclerViewStudents: RecyclerView = findViewById(R.id.recyclerViewStudents)
+        val recyclerViewSeries: RecyclerView = findViewById(R.id.recyclerViewSeries)
         //3º) Indico la disposición en la que se mostrarán los items en el RecyclerView (P.Ej: GridLayout de 2 columnas)
         val layoutManagerStudents: RecyclerView.LayoutManager = GridLayoutManager(this, 1)
-        recyclerViewStudents.setLayoutManager(layoutManagerStudents)
+        recyclerViewSeries.setLayoutManager(layoutManagerStudents)
         //4º) Asigno al RecyclerView el adaptador que relaciona a cada item con su objeto a mostrar.
-        val studentsAdapter = SeriesAdapter(series)
-        recyclerViewStudents.setAdapter(studentsAdapter)
+        val seriesAdapter = SeriesAdapter(series)
+        recyclerViewSeries.setAdapter(seriesAdapter)
     }
 }

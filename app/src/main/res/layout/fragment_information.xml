@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textSize="14sp"
         android:text="Cuando el analista de la CIA, Jack Ryan, se tropieza con una serie de transferencias bancarias sospechosas, su búsqueda de respuestas lo saca de la seguridad de su escritorio y lo catapulta hacia un juego mortal del gato y el ratón por toda Europa y Oriente Medio, donde se encuentra a un terrorista que prepara un ataque masivo contra Estados Unidos y sus aliados." />
 
 

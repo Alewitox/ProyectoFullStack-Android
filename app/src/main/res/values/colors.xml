@@ -10,6 +10,7 @@
     <color name="FragmentHeader">#121212</color>
     <color name="FragmentTabs">#686A65</color>
     <color name="TabIndicator">#E09F87</color>
+    <color name="episodesDate">#BCBCBC</color>
 
 
 </resources>
