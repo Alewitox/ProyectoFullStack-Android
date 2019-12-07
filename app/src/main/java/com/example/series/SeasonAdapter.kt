@@ -26,6 +26,7 @@ class SeasonsAdapter(var seasons: ArrayList<Seasons>) :
         holder.episodeDate.text = seasons[position].EpisodeDate
         holder.episodeTitle.text = seasons[position].EpisodeTitle
         holder.episodeRating.text = seasons[position].EpisodeRating
+        holder.episodeDescription.text = seasons[position].EpisodeDescription
 
 
 
@@ -42,6 +43,7 @@ class SeasonsAdapter(var seasons: ArrayList<Seasons>) :
         var episodeDate: TextView
         var episodeTitle: TextView
         var episodeRating: TextView
+        var episodeDescription: TextView
 
 
 
@@ -51,6 +53,7 @@ class SeasonsAdapter(var seasons: ArrayList<Seasons>) :
             episodeDate = v.findViewById(R.id.episodedateid)
             episodeTitle = v.findViewById(R.id.episodetitleid)
             episodeRating = v.findViewById(R.id.episoderatingid)
+            episodeDescription = v.findViewById(R.id.episodedescriptionid)
 
 
         }

@@ -1,59 +1,68 @@
 package com.example.series
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 
+class SeriesAdapter(
 
-class SeriesAdapter(var series: ArrayList<Series>) :
-    RecyclerView.Adapter<SeriesAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
-        val v: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.series_home, null)
-        return ViewHolder(v)
+    private val mContext: Context,
+    private val mData: List<Series>
+) :
+    RecyclerView.Adapter<SeriesAdapter.MyViewHolder>() {
+    var option: RequestOptions
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val view: View
+        val inflater = LayoutInflater.from(mContext)
+        view = inflater.inflate(R.layout.series_home, parent, false)
+        val viewHolder = MyViewHolder(view)
+        return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(
-        holder: ViewHolder,
-        position: Int
-    ) {
-        holder.serieName.text = series[position].name
-        holder.categorie.text = series[position].categorie
-        holder.rating.text = series[position].rating
-        holder.studio.text = series[position].studio
-
-
-
-        
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.tv_name.text = mData[position].name
+        holder.tv_rating.text = mData[position].rating
+        holder.tv_studio.text = mData[position].studio
+        holder.tv_category.text = mData[position].categorie
+        // Load Image from the internet and set it into Imageview using Glide
+        Glide.with(mContext).load(mData[position].image_url).apply(option)
+            .into(holder.img_thumbnail)
     }
 
     override fun getItemCount(): Int {
-        return series.size
+        return mData.size
     }
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var serieName: TextView
-        var categorie: TextView
-        var rating: TextView
-        var studio: TextView
-
-
+    class MyViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        var tv_name: TextView
+        var tv_rating: TextView
+        var tv_studio: TextView
+        var tv_category: TextView
+        var img_thumbnail: ImageView
 
         init {
-            serieName = v.findViewById(R.id.serieName)
-            categorie = v.findViewById(R.id.categorie)
-            rating = v.findViewById(R.id.rating)
-            studio = v.findViewById(R.id.studio)
-
-
+            tv_name = itemView.findViewById(R.id.serieName)
+            tv_category = itemView.findViewById(R.id.categorie)
+            tv_rating = itemView.findViewById(R.id.rating)
+            tv_studio = itemView.findViewById(R.id.studio)
+            img_thumbnail = itemView.findViewById(R.id.thumbnail)
         }
     }
 
+    init {
+        // Request option for Glide
+        option = RequestOptions().centerCrop().placeholder(R.drawable.loading_shape)
+            .error(R.drawable.loading_shape)
+    }
 }
+
+

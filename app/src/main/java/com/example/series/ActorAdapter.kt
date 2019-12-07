@@ -25,9 +25,6 @@ class ActorsAdapter(var actors: ArrayList<Actors>) :
         holder.characterName.text = actors[position].CharacterName
 
 
-
-
-
     }
 
     override fun getItemCount(): Int {
@@ -44,8 +41,6 @@ class ActorsAdapter(var actors: ArrayList<Actors>) :
         init {
             actorName = v.findViewById(R.id.actornameid)
             characterName = v.findViewById(R.id.characternameid)
-
-
 
         }
     }

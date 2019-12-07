@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
                     sleep(4000)
 
-                    val intent = Intent(baseContext, TabLayout::class.java)
+                    val intent = Intent(baseContext, HomeActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
