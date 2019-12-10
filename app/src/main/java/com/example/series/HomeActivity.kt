@@ -1,5 +1,6 @@
 package com.example.series
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,19 +13,30 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 
+
 class HomeActivity : AppCompatActivity() {
+
     private val JSON_URL =
-        "https://gist.githubusercontent.com/Alewitox/452c2dc7112ba33313cf32cda8efd9b2/raw/03e6cf772f07c5db8cb683cd40bab8caf0b731af/animelist"
+        "http://192.168.103.210:8000/api/all/series"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstSerie: MutableList<Series>? = null
     private var recyclerView: RecyclerView? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        /*linearSeries.setOnClickListener{
+            var intent = Intent(this,TabLayout::class.java)
+            startActivity(intent)
+        }*/
+
         lstSerie = ArrayList()
         recyclerView = findViewById(R.id.recyclerViewSeries)
         jsonrequest()
+
     }
 
     fun jsonrequest() {
@@ -36,10 +48,10 @@ class HomeActivity : AppCompatActivity() {
                         try {
                             jsonObject = response.getJSONObject(i)
                             val serie = Series()
-                            serie.name = jsonObject.getString("name")
-                            serie.rating = jsonObject.getString("Rating")
+                            serie.name = jsonObject.getString("title")
+                            serie.rating = jsonObject.getString("rating")
                             serie.image_url = jsonObject.getString("img")
-                            serie.studio = jsonObject.getString("studio")
+                            serie.studio = jsonObject.getString("network")
                             serie.categorie = jsonObject.getString("categorie")
                             lstSerie!!.add(serie)
                         } catch (e: JSONException) {
