@@ -64,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
         requestQueue!!.add(request)
     }
 
-    fun setuprecyclerview(lstAnime: List<Series>?) {
+    fun setuprecyclerview(lstSerie: List<Series>?) {
         val myadapter = SeriesAdapter(this, lstSerie!!)
         recyclerView!!.layoutManager = LinearLayoutManager(this)
         recyclerView!!.adapter = myadapter

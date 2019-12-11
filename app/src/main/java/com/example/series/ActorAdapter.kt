@@ -29,7 +29,7 @@ class ActorAdapter(private val mContext: Context, private val mData: List<Actors
 
         // Load Image from the internet and set it into Imageview using Glide
         Glide.with(mContext).load(mData[position].image_url_actor).apply(option)
-            .into(holder.img_thumbnail_actor)
+            .into(holder.imgThumbnailActor)
     }
 
     override fun getItemCount(): Int {
@@ -40,12 +40,12 @@ class ActorAdapter(private val mContext: Context, private val mData: List<Actors
         RecyclerView.ViewHolder(itemView) {
         var characterName: TextView
         var actorName: TextView
-        var img_thumbnail_actor: ImageView
+        var imgThumbnailActor: ImageView
 
         init {
             characterName = itemView.findViewById(R.id.characternameid)
             actorName = itemView.findViewById(R.id.actornameid)
-            img_thumbnail_actor = itemView.findViewById(R.id.thumbnailActor)
+            imgThumbnailActor = itemView.findViewById(R.id.thumbnailActor)
         }
     }
 

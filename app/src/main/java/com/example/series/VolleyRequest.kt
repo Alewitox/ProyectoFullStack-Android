@@ -13,7 +13,7 @@ import com.example.series.authentication.model.User
 import com.example.series.authentication.viewModel.UsersViewModel
 import org.json.JSONObject
 
-class RequestHttp {
+class VolleyRequest {
     companion object {
         private var db: TvShowDatabase? = null
         const val URL ="http://192.168.103.210:8000"
@@ -74,7 +74,7 @@ class RequestHttp {
             }else{
                 Log.println(Log.INFO,null,"logout")
             }
-            RequestHttp.getTokenUser(context,usersViewModel)
+            VolleyRequest.getTokenUser(context,usersViewModel)
 
         }
 

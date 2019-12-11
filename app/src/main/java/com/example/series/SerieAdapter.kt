@@ -17,6 +17,7 @@ class SeriesAdapter(
     private val mData: List<Series>
 ) :
     RecyclerView.Adapter<SeriesAdapter.MyViewHolder>() {
+
     var option: RequestOptions
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -28,13 +29,14 @@ class SeriesAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.tv_name.text = mData[position].name
-        holder.tv_rating.text = mData[position].rating
-        holder.tv_studio.text = mData[position].studio
-        holder.tv_category.text = mData[position].categorie
+        holder.tvName.text = mData[position].name
+        holder.tvRating.text = mData[position].rating
+        holder.tvStudio.text = mData[position].studio
+        holder.tvCategory.text = mData[position].categorie
+
         // Load Image from the internet and set it into Imageview using Glide
         Glide.with(mContext).load(mData[position].image_url).apply(option)
-            .into(holder.img_thumbnail)
+            .into(holder.imgThumbnail)
     }
 
     override fun getItemCount(): Int {
@@ -43,18 +45,18 @@ class SeriesAdapter(
 
     class MyViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        var tv_name: TextView
-        var tv_rating: TextView
-        var tv_studio: TextView
-        var tv_category: TextView
-        var img_thumbnail: ImageView
+        var tvName: TextView
+        var tvRating: TextView
+        var tvStudio: TextView
+        var tvCategory: TextView
+        var imgThumbnail: ImageView
 
         init {
-            tv_name = itemView.findViewById(R.id.serieName)
-            tv_category = itemView.findViewById(R.id.categorie)
-            tv_rating = itemView.findViewById(R.id.rating)
-            tv_studio = itemView.findViewById(R.id.studio)
-            img_thumbnail = itemView.findViewById(R.id.thumbnail)
+            tvName = itemView.findViewById(R.id.serieName)
+            tvCategory = itemView.findViewById(R.id.categorie)
+            tvRating = itemView.findViewById(R.id.rating)
+            tvStudio = itemView.findViewById(R.id.studio)
+            imgThumbnail = itemView.findViewById(R.id.thumbnail)
         }
     }
 
