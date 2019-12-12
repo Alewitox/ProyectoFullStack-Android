@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        usersViewModel = run {
+            ViewModelProviders.of(this).get(UsersViewModel::class.java)
+        }
+
+        RequestHttp.sincronizacionUsuarios(this, usersViewModel)
 
         val background = object : Thread() {
             override fun run() {

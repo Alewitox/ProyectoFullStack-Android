@@ -26,48 +26,16 @@ class RegisterActivity : AppCompatActivity() {
             ViewModelProviders.of(this).get(UsersViewModel::class.java)
         }
 
-        rg_registerText.setOnClickListener(){
+        rg_registerText.setOnClickListener{
             var intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
 
-        rg_register.setOnClickListener() {
-            addUser()
+        rg_register.setOnClickListener{
+            RequestHttp.registerUser(this, usersViewModel,rg_name,rg_email,rg_password)
 
         }
     }
 
-    private fun addUser() {
 
-        // User input
-        val loginJsonobj = JSONObject()
-
-        loginJsonobj.put("name", rg_name.text)
-        loginJsonobj.put("email", rg_email.text)
-        loginJsonobj.put("password", rg_password.text)
-
-        // new Volley newRequestQueue
-        val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.103.210:8000/api/auth/register"
-        val req = object : JsonObjectRequest(
-            Request.Method.POST, url, loginJsonobj,
-            Response.Listener {
-
-                usersViewModel.saveUser(
-                    User(
-                        rg_name.text.toString(),
-                        rg_email.text.toString()
-                    )
-                )
-
-                Toast.makeText(this, "Tu cuenta ha sido creada con éxito ", Toast.LENGTH_LONG).show()
-            },
-            Response.ErrorListener {
-                Toast.makeText(this, "No se ha podido crear la cuenta!", Toast.LENGTH_SHORT).show()
-            }) {}
-
-        queue.add(req)
-
-
-    }
 }

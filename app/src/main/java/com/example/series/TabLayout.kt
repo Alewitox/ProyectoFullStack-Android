@@ -1,6 +1,5 @@
 package com.example.series
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +9,7 @@ import com.example.series.fragments.ActorsFragment
 import com.example.series.fragments.InformationFragment
 import com.example.series.fragments.SeasonsFragment
 import kotlinx.android.synthetic.main.activity_tab_layout.*
-import kotlinx.android.synthetic.main.series_home.*
+import kotlinx.android.synthetic.main.activity_tab_layout.toolbar
 
 class TabLayout : AppCompatActivity() {
 
@@ -18,6 +17,7 @@ class TabLayout : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab_layout)
 
+        setSupportActionBar(toolbar)
 
         val adapter = MyViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(InformationFragment(), "Información")
@@ -50,4 +50,12 @@ class TabLayout : AppCompatActivity() {
         }
 
     }
+
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
+

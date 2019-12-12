@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/menuhome"
+        android:title="Series" />
+
+    <item
+        android:id="@+id/menulogin"
+        android:title="Iniciar sesión" />
+    <item
+        android:id="@+id/menuregister"
+        android:title="Registrarse" />
+
+    <item
+        android:id="@+id/menulogout"
+        android:title="Cerrar sesión" />
+
+</menu>

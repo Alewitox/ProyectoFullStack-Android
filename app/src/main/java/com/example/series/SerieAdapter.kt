@@ -25,6 +25,9 @@ class SeriesAdapter(
         val inflater = LayoutInflater.from(mContext)
         view = inflater.inflate(R.layout.series_home, parent, false)
         val viewHolder = MyViewHolder(view)
+
+
+
         return MyViewHolder(view)
     }
 
@@ -43,8 +46,7 @@ class SeriesAdapter(
         return mData.size
     }
 
-    class MyViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView
         var tvRating: TextView
         var tvStudio: TextView

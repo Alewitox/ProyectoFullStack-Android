@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         lg_login.setOnClickListener{
-            VolleyRequest.login(this, lg_email, lg_password, usersViewModel)
+            RequestHttp.login(this, lg_email, lg_password, usersViewModel)
 
 
         }

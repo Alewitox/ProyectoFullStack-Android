@@ -14,7 +14,6 @@
         android:id="@+id/thumbnail"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:clickable="true"
         android:background="@drawable/loading_shape" />
 
 
