@@ -1,9 +1,11 @@
 package com.example.series
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -38,6 +40,7 @@ class RequestHttp {
 
                     val token=usersViewModel.getToken(email_text.text.toString())
                     Toast.makeText(context, "Identificacion correcta "+token, Toast.LENGTH_SHORT).show()
+
 
                 },
                 Response.ErrorListener {

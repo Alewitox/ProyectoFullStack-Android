@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Seriesfreak</string>
     <string name="Login_Activity_email">Email</string>
-    <string name="Login_Activity_password">Password</string>
+    <string name="Login_Activity_password">Contraseña</string>
     <string name="login_text">Login</string>
     <string name="login_email">Email</string>
     <string name="login_password">Contraseña</string>

@@ -1,10 +1,12 @@
 package com.example.series
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -37,6 +39,11 @@ class SeriesAdapter(
         holder.tvStudio.text = mData[position].studio
         holder.tvCategory.text = mData[position].categorie
 
+        holder.linearSeries.setOnClickListener{
+            val intent = Intent(mContext, TabLayout::class.java)
+            mContext.startActivity(intent)
+        }
+
         // Load Image from the internet and set it into Imageview using Glide
         Glide.with(mContext).load(mData[position].image_url).apply(option)
             .into(holder.imgThumbnail)
@@ -52,6 +59,7 @@ class SeriesAdapter(
         var tvStudio: TextView
         var tvCategory: TextView
         var imgThumbnail: ImageView
+        lateinit var linearSeries: LinearLayout
 
         init {
             tvName = itemView.findViewById(R.id.serieName)
@@ -59,6 +67,7 @@ class SeriesAdapter(
             tvRating = itemView.findViewById(R.id.rating)
             tvStudio = itemView.findViewById(R.id.studio)
             imgThumbnail = itemView.findViewById(R.id.thumbnail)
+            linearSeries = itemView.findViewById(R.id.linearSeries)
         }
     }
 

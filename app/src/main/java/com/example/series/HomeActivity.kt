@@ -81,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
         var opcion1 = menu.findItem(R.id.menuhome)
         opcion1.setEnabled(true)
 
-        return true;
+        return true
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
@@ -90,23 +90,22 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
+
         if (id == R.id.menuhome) {
             val b = Intent(this, HomeActivity::class.java)
+            startActivity(b)
+            return true
+        } else if (id == R.id.menuprofile) {
+            val b = Intent(this, ProfileActivity::class.java)
             startActivity(b)
             return true
         } else if (id == R.id.menulogin) {
             val b = Intent(this, LoginActivity::class.java)
             startActivity(b)
             return true
-        }else if (id == R.id.menuregister) {
-            val b = Intent(this, RegisterActivity::class.java)
-            startActivity(b)
-            return true
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 
 
 

@@ -11,6 +11,10 @@
     <color name="FragmentTabs">#686A65</color>
     <color name="TabIndicator">#E09F87</color>
     <color name="episodesDate">#BCBCBC</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="underlineActive">#EC110A</color>
+
+    <color name="underline">#121212</color>
 
 
 </resources>

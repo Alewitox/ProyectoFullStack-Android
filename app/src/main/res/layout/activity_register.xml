@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorMain"
+
+            android:theme="@style/AppTheme">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:titleTextColor="#ffffff"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+                app:title="Registro" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </LinearLayout>
+
+
+
     <EditText
         android:id="@+id/rg_name"
         android:layout_width="300dp"
@@ -96,7 +121,7 @@
         android:id="@+id/rg_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="85dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

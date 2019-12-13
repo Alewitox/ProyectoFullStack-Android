@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.series.authentication.database.TvShowDatabase
 import com.example.series.authentication.viewModel.UsersViewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.toolbar
+import kotlinx.android.synthetic.main.activity_tab_layout.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+        setSupportActionBar(toolbar)
 
         usersViewModel = run {
             ViewModelProviders.of(this).get(UsersViewModel::class.java)
@@ -36,5 +40,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
+
+

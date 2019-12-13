@@ -12,6 +12,8 @@ import com.android.volley.toolbox.Volley
 import com.example.series.authentication.model.User
 import com.example.series.authentication.viewModel.UsersViewModel
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_register.toolbar
+import kotlinx.android.synthetic.main.activity_tab_layout.*
 import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        setSupportActionBar(toolbar)
 
         usersViewModel = run {
             ViewModelProviders.of(this).get(UsersViewModel::class.java)
@@ -37,5 +41,9 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 }
