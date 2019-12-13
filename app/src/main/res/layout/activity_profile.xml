@@ -51,6 +51,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/profileTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
@@ -99,6 +100,7 @@
 
 
                     <TextView
+                        android:id="@+id/aliasTextView"
                         android:textSize="16sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -201,7 +203,7 @@
 
 
                 <Button
-                    android:id="@+id/editAlias"
+                    android:id="@+id/editAliasBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Editar alias"
