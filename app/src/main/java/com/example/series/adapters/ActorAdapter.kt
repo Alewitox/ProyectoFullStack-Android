@@ -1,4 +1,4 @@
-package com.example.series
+package com.example.series.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.series.models.Actors
+import com.example.series.R
 
 
 class ActorAdapter(private val mContext: Context, private val mData: List<Actors>): RecyclerView.Adapter<ActorAdapter.MyViewHolder>() {
@@ -19,7 +21,8 @@ class ActorAdapter(private val mContext: Context, private val mData: List<Actors
         val view: View
         val inflater = LayoutInflater.from(mContext)
         view = inflater.inflate(R.layout.fragment_actors, parent, false)
-        val viewHolder = MyViewHolder(view)
+        val viewHolder =
+            MyViewHolder(view)
         return MyViewHolder(view)
     }
 

@@ -13,8 +13,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.series.R
-import com.example.series.SeasonAdapter
-import com.example.series.Seasons
+import com.example.series.adapters.SeasonAdapter
+import com.example.series.models.Seasons
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -24,8 +24,7 @@ import org.json.JSONObject
  */
 class SeasonsFragment : Fragment() {
 
-    private val JSON_URL =
-        "http://192.168.1.210:8000/api/all/episodes"
+    private val JSON_URL = "http://192.168.1.210:8000/api/all/episodes"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstSeason: MutableList<Seasons>? = null
@@ -55,8 +54,13 @@ class SeasonsFragment : Fragment() {
                     for (i in 0 until response.length()) {
                         try {
                             jsonObject = response.getJSONObject(i)
-                            val season = Seasons("", "", "" ,"", "", "")
-                            season.SeasonNumber = jsonObject.getString("season")
+                            val season = Seasons(
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            )
                             season.EpisodeNumber = jsonObject.getString("episode_number")
                             season.EpisodeDate = jsonObject.getString("release_date")
                             season.EpisodeTitle = jsonObject.getString("title")

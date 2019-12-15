@@ -20,7 +20,7 @@ import com.example.series.authentication.viewModel.UsersViewModel
 import org.json.JSONArray
 import org.json.JSONObject
 
-class RequestHttp {
+class VolleyRequestUser {
 
     companion object {
         private var db: TvShowDatabase? = null
@@ -36,14 +36,14 @@ class RequestHttp {
 
                 // new Volley newRequestQueue
                 val queue = Volley.newRequestQueue(context)
-                val url = URL +"/api/auth/login"
+                val url = URL + "/api/auth/login"
                 val req = object : JsonObjectRequest(Request.Method.POST, url, loginJsonobj,
                     Response.Listener {
                         updateToken(context,email_text,usersViewModel,it.getString("token"))
-                        Toast.makeText(context, "Identificacion correcta ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Sesión iniciada correctamente ", Toast.LENGTH_SHORT).show()
                     },
                     Response.ErrorListener {
-                        Toast.makeText(context, "Identificacion erronea ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Error al iniciar sesión ", Toast.LENGTH_SHORT).show()
                     }
                 ){}
                 queue.add(req)
@@ -63,7 +63,7 @@ class RequestHttp {
 
                 // new Volley newRequestQueue
                 val queue = Volley.newRequestQueue(context)
-                val url = URL +"/user"
+                val url = URL + "/user"
                 val req = object : JsonObjectRequest(Request.Method.POST, url, jsonObject,
                     Response.Listener {
                         usersViewModel.updateUser(User(1, it.getString("id"), token))
@@ -73,7 +73,7 @@ class RequestHttp {
 
                     },
                     Response.ErrorListener {
-                        Log.println(Log.INFO,null,"ERROR "+it.message)
+                        Log.println(Log.INFO,null,"ERROR " + it.message)
                     }
                 ){}
                 queue.add(req)
@@ -89,18 +89,18 @@ class RequestHttp {
                 loginJsonobj.put("password", password_editText.text)
 
                 val queue = Volley.newRequestQueue(context)
-                val url = URL +"/api/auth/register"
+                val url = URL  + "/api/auth/register"
                 val req = object : JsonObjectRequest(
                     Request.Method.POST, url, loginJsonobj,
                     Response.Listener {
 
-                        Toast.makeText(context, "Registro realizado ! ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Usuario registrado correctamente ", Toast.LENGTH_LONG).show()
 
                         val intent = Intent(context, LoginActivity::class.java)
                         context.startActivity(intent)
                     },
                     Response.ErrorListener {
-                        Log.println(Log.INFO,null,"ERROR "+it.networkResponse)
+                        Log.println(Log.INFO,null,"ERROR " + it.networkResponse)
                     })
                 {}
 
@@ -111,7 +111,7 @@ class RequestHttp {
 
 
                 val queue = Volley.newRequestQueue(context)
-                val url = URL +"/api/users/"+usersViewModel.getUserId(1)
+                val url = URL + "/api/users/" + usersViewModel.getUserId(1)
                 val req = object : JsonObjectRequest(
                     Request.Method.GET, url, null,
                     Response.Listener {
@@ -123,16 +123,15 @@ class RequestHttp {
 
                     },
                     Response.ErrorListener {
-                        Log.println(Log.INFO,null,"ERROR "+it.networkResponse.data)
+                        Log.println(Log.INFO,null,"ERROR " + it.networkResponse.data)
                     })
                 {
                     @Throws(AuthFailureError::class)
                     override fun getHeaders(): Map<String, String> {
-                        val headers: MutableMap<String, String> =
-                            HashMap()
+                        val headers: MutableMap<String, String> = HashMap()
                         // Basic Authentication
                         var token = usersViewModel.getToken(1)
-                        headers["Authorization"] = "Bearer "+token
+                        headers["Authorization"] = "Bearer " + token
                         return headers
                     }
                 }
@@ -152,23 +151,22 @@ class RequestHttp {
                 val req = object : JsonObjectRequest(
                     Request.Method.PUT, url, updateJsonobj,
                     Response.Listener {
-                        Toast.makeText(context, "actualización realizada con exito", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Perfil actualizado correctamente", Toast.LENGTH_LONG).show()
 
                         val intent=Intent(context,ProfileActivity::class.java)
                         context.startActivity(intent)
 
                     },
                     Response.ErrorListener {
-                        Log.println(Log.INFO,null,"ERROR "+it.message)
+                        Log.println(Log.INFO,null,"ERROR " + it.message)
                     })
                 {
                     @Throws(AuthFailureError::class)
                     override fun getHeaders(): Map<String, String> {
-                        val headers: MutableMap<String, String> =
-                            HashMap()
+                        val headers: MutableMap<String, String> = HashMap()
                         // Basic Authentication
                         var token = usersViewModel.getToken(1)
-                        headers["Authorization"] = "Bearer "+token
+                        headers["Authorization"] = "Bearer " + token
                         return headers
                     }
                 }
@@ -179,7 +177,7 @@ class RequestHttp {
             @JvmStatic fun deleteUser(context: Context,usersViewModel: UsersViewModel) {
 
                 val queue = Volley.newRequestQueue(context)
-                val url = URL +"/api/users/"+usersViewModel.getUserId(1)
+                val url = URL + "/api/users/" + usersViewModel.getUserId(1)
                 val req = object : StringRequest(
                     Request.Method.DELETE, url,
                     Response.Listener {
@@ -195,11 +193,10 @@ class RequestHttp {
                 {
                     @Throws(AuthFailureError::class)
                     override fun getHeaders(): Map<String, String> {
-                        val headers: MutableMap<String, String> =
-                            HashMap()
+                        val headers: MutableMap<String, String> = HashMap()
                         // Basic Authentication
                         var token = usersViewModel.getToken(1)
-                        headers["Authorization"] = "Bearer "+token
+                        headers["Authorization"] = "Bearer " + token
                         return headers
                     }
                 }

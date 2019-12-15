@@ -1,10 +1,12 @@
-package com.example.series
+package com.example.series.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.series.R
+import com.example.series.models.Seasons
 
 class SeasonAdapter(var seasons: ArrayList<Seasons>) :
     RecyclerView.Adapter<SeasonAdapter.ViewHolder>() {
@@ -21,7 +23,6 @@ class SeasonAdapter(var seasons: ArrayList<Seasons>) :
         holder: ViewHolder,
         position: Int
     ) {
-        holder.seasonNumber.text = seasons[position].SeasonNumber
         holder.episodeNumber.text = seasons[position].EpisodeNumber
         holder.episodeDate.text = seasons[position].EpisodeDate
         holder.episodeTitle.text = seasons[position].EpisodeTitle
@@ -38,7 +39,6 @@ class SeasonAdapter(var seasons: ArrayList<Seasons>) :
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var seasonNumber: TextView
         var episodeNumber: TextView
         var episodeDate: TextView
         var episodeTitle: TextView
@@ -48,7 +48,6 @@ class SeasonAdapter(var seasons: ArrayList<Seasons>) :
 
 
         init {
-            seasonNumber = v.findViewById(R.id.seasonnumberid)
             episodeNumber = v.findViewById(R.id.episodenumberid)
             episodeDate = v.findViewById(R.id.episodedateid)
             episodeTitle = v.findViewById(R.id.episodetitleid)

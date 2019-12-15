@@ -1,4 +1,4 @@
-package com.example.series
+package com.example.series.models
 
 data class Series (
     var name: String? = null,

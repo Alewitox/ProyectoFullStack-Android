@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var usersViewModel: UsersViewModel
+    private lateinit var usersViewModel : UsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +24,11 @@ class ProfileActivity : AppCompatActivity() {
 
 
         logoutClick.setOnClickListener{
-            RequestHttp.logout(this, usersViewModel)
+            VolleyRequestUser.logout(this, usersViewModel)
         }
 
         deleteAccount.setOnClickListener{
-            RequestHttp.deleteUser(this, usersViewModel)
+            VolleyRequestUser.deleteUser(this, usersViewModel)
         }
 
         editProfileBtn.setOnClickListener{
@@ -36,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        RequestHttp.selectUser(this,usersViewModel,profileTextView, headerEmail, aliasTextView, emailTextView)
+        VolleyRequestUser.selectUser(this,usersViewModel,profileTextView, headerEmail, aliasTextView, emailTextView)
     }
 
 

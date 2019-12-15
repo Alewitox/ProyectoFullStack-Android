@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.example.series.authentication.viewModel.UsersViewModel
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.toolbar
 
 class EditProfileActivity : AppCompatActivity() {
 
-    private lateinit var usersViewModel: UsersViewModel
+    private lateinit var usersViewModel : UsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,7 @@ class EditProfileActivity : AppCompatActivity() {
 
 
         editBtn.setOnClickListener{
-            RequestHttp.updateUser(this, usersViewModel, editAlias, editEmail)
+            VolleyRequestUser.updateUser(this, usersViewModel, editAlias, editEmail)
         }
     }
 

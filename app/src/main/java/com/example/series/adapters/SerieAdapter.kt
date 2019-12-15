@@ -1,4 +1,4 @@
-package com.example.series
+package com.example.series.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -11,14 +11,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.series.R
+import com.example.series.models.Series
+import com.example.series.TabLayout
 
 
-class SeriesAdapter(
-
-    private val mContext: Context,
-    private val mData: List<Series>
-) :
-    RecyclerView.Adapter<SeriesAdapter.MyViewHolder>() {
+class SeriesAdapter( private val mContext: Context, private val mData: List<Series>) : RecyclerView.Adapter<SeriesAdapter.MyViewHolder>() {
 
     var option: RequestOptions
 
@@ -26,7 +24,8 @@ class SeriesAdapter(
         val view: View
         val inflater = LayoutInflater.from(mContext)
         view = inflater.inflate(R.layout.series_home, parent, false)
-        val viewHolder = MyViewHolder(view)
+        val viewHolder =
+            MyViewHolder(view)
 
 
 

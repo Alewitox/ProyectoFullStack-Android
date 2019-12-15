@@ -14,6 +14,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.series.*
+import com.example.series.adapters.ActorAdapter
+import com.example.series.models.Actors
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.ArrayList
@@ -23,8 +25,7 @@ import java.util.ArrayList
  */
 class ActorsFragment : Fragment() {
 
-    private val JSON_URL =
-        "http://192.168.1.210:8000/api/all/actors"
+    private val JSON_URL = "http://192.168.1.210:8000/api/all/actors"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstActor: MutableList<Actors>? = null
@@ -70,7 +71,8 @@ class ActorsFragment : Fragment() {
     }
 
     fun setuprecyclerview(context: Context, lstActor: List<Actors>?) {
-        val myadapter = ActorAdapter(context, lstActor!!)
+        val myadapter =
+            ActorAdapter(context, lstActor!!)
         recyclerView!!.layoutManager = LinearLayoutManager(context)
         recyclerView!!.adapter = myadapter
     }

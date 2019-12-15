@@ -12,6 +12,8 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.example.series.adapters.SeriesAdapter
+import com.example.series.models.Series
 import kotlinx.android.synthetic.main.activity_home.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -20,8 +22,7 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
-    private val JSON_URL =
-        "http://192.168.1.210:8000/api/all/series"
+    private val JSON_URL = "http://192.168.1.210:8000/api/all/series"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstSerie: MutableList<Series>? = null
@@ -67,7 +68,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun setuprecyclerview(lstSerie: List<Series>?) {
-        val myadapter = SeriesAdapter(this, lstSerie!!)
+        val myadapter =
+            SeriesAdapter(this, lstSerie!!)
         recyclerView!!.layoutManager = LinearLayoutManager(this)
         recyclerView!!.adapter = myadapter
     }
@@ -78,7 +80,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onPrepareOptionsMenu(menu : Menu):Boolean {
         //Se accede al ítem usando el id que
         //tiene dentro del menú directamente
-        var opcion1 = menu.findItem(R.id.menuhome)
+        var opcion1 = menu.findItem(R.id.menuProfile)
         opcion1.setEnabled(true)
 
         return true
@@ -91,11 +93,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
-        if (id == R.id.menuhome) {
+        if (id == R.id.menuProfile) {
             val b = Intent(this, ProfileActivity::class.java)
             startActivity(b)
             return true
-        } else if (id == R.id.menuprofile) {
+        } else if (id == R.id.menuProfile) {
             val b = Intent(this, ProfileActivity::class.java)
             startActivity(b)
             return true

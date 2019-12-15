@@ -3,16 +3,12 @@
 
 
     <item
-        android:id="@+id/menuhome"
-        android:title="Series" />
-
-    <item
-        android:id="@+id/menuprofile"
+        android:id="@+id/menuProfile"
         android:title="Perfil" />
 
     <item
-        android:id="@+id/menulogin"
-        android:title="Iniciar sesión" />
+        android:id="@+id/menuNightMode"
+        android:title="Modo Nocturno" />
 
 
 </menu>

@@ -10,6 +10,7 @@ import com.example.series.authentication.database.TvShowDatabase
 import com.example.series.authentication.model.User
 
 class UsersRepository(application: Application) {
+    
     private val userDao: UserDao? = TvShowDatabase.getInstance(application)?.userDao()
 
     fun insert(user:User) {

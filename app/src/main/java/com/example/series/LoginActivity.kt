@@ -10,12 +10,11 @@ import com.example.series.authentication.model.User
 import com.example.series.authentication.viewModel.UsersViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.toolbar
-import kotlinx.android.synthetic.main.activity_tab_layout.*
 
 class LoginActivity : AppCompatActivity() {
 
     private var db: TvShowDatabase? = null
-    private lateinit var token:String
+    private lateinit var token: String
 
     private lateinit var usersViewModel: UsersViewModel
 
@@ -32,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        if(usersViewModel.getUserIdLocal(1)==0){
+        if(usersViewModel.getUserIdLocal(1) == 0){
             usersViewModel.saveUser(User(1,"",""))
             Log.println(Log.INFO,null,"Guardado ")
         }else{
@@ -45,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         lg_login.setOnClickListener{
-            RequestHttp.login(this, lg_email, lg_password, usersViewModel)
+            VolleyRequestUser.login(this, lg_email, lg_password, usersViewModel)
 
 
         }
