@@ -21,7 +21,7 @@ import java.util.*
 class HomeActivity : AppCompatActivity() {
 
     private val JSON_URL =
-        "http://192.168.103.210:8000/api/all/series"
+        "http://192.168.1.210:8000/api/all/series"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstSerie: MutableList<Series>? = null
@@ -92,15 +92,11 @@ class HomeActivity : AppCompatActivity() {
         val id = item.itemId
 
         if (id == R.id.menuhome) {
-            val b = Intent(this, HomeActivity::class.java)
+            val b = Intent(this, ProfileActivity::class.java)
             startActivity(b)
             return true
         } else if (id == R.id.menuprofile) {
             val b = Intent(this, ProfileActivity::class.java)
-            startActivity(b)
-            return true
-        } else if (id == R.id.menulogin) {
-            val b = Intent(this, LoginActivity::class.java)
             startActivity(b)
             return true
         }
@@ -109,8 +105,7 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 }

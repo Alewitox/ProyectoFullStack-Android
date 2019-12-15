@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
@@ -25,7 +24,7 @@ import java.util.ArrayList
 class ActorsFragment : Fragment() {
 
     private val JSON_URL =
-        "http://192.168.103.210:8000/api/all/actors"
+        "http://192.168.1.210:8000/api/all/actors"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
     private var lstActor: MutableList<Actors>? = null

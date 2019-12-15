@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorMain"
+
+        android:theme="@style/AppTheme">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:titleTextColor="#ffffff"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:title="Editar perfil" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <EditText
+        android:id="@+id/editAlias"
+        android:layout_width="300dp"
+        android:layout_marginTop="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Alias"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="300dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/Login_Activity_email"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="36dp"
+        android:text="Editar"
+        android:textSize="20sp"
+ />
+
+</LinearLayout>

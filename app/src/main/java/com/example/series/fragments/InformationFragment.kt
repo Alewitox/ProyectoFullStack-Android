@@ -57,27 +57,26 @@ class InformationFragment : Fragment() {
 
 fun requestToServer(context: Context, descriptionid: TextView, originalTitleid: TextView, originalLanguageid: TextView, firstEpisodeDate: TextView, lastEpisodeDate: TextView, serieStatus: TextView, networkid: TextView, creatorsid: TextView) {
 
-    var array= JSONArray()
-    val URL ="http://192.168.103.210:8000"
+
+    val URL ="http://192.168.1.210:8000"
 
 
     val queue = Volley.newRequestQueue(context)
-    val url = RequestHttp.URL +"/api/all/series"
-    val req = object : JsonArrayRequest(
+    val url = RequestHttp.URL +"/api/all/series/1"
+    val req = object : JsonObjectRequest(
         Request.Method.GET, url, null,
         Response.Listener {
-            array=it
-            //for (i in 0 until array.length()) {
-                val info = array.getJSONObject(0)
 
-                descriptionid.setText(info.getString("description"))
-                originalTitleid.setText(info.getString("original_title"))
-                originalLanguageid.setText(info.getString("original_language"))
-                serieStatus.setText(info.getString("status"))
-                firstEpisodeDate.setText(info.getString("first_air_date"))
-                lastEpisodeDate.setText(info.getString("last_air_date"))
-                creatorsid.setText(info.getString("creator"))
-                networkid.setText(info.getString("network"))
+
+
+                descriptionid.setText(it.getString("description"))
+                originalTitleid.setText(it.getString("original_title"))
+                originalLanguageid.setText(it.getString("original_language"))
+                serieStatus.setText(it.getString("status"))
+                firstEpisodeDate.setText(it.getString("first_air_date"))
+                lastEpisodeDate.setText(it.getString("last_air_date"))
+                creatorsid.setText(it.getString("creator"))
+                networkid.setText(it.getString("network"))
             //}
 
         },

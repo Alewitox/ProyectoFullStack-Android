@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
             ViewModelProviders.of(this).get(UsersViewModel::class.java)
         }
 
-        RequestHttp.sincronizacionUsuarios(this, usersViewModel)
 
         val background = object : Thread() {
             override fun run() {
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
                     sleep(4000)
 
-                    val intent = Intent(baseContext, HomeActivity::class.java)
+                    val intent = Intent(baseContext, LoginActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()

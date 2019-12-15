@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class SeasonsAdapter(var seasons: ArrayList<Seasons>) :
-    RecyclerView.Adapter<SeasonsAdapter.ViewHolder>() {
+class SeasonAdapter(var seasons: ArrayList<Seasons>) :
+    RecyclerView.Adapter<SeasonAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

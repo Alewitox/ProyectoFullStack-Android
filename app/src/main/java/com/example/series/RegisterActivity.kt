@@ -18,7 +18,6 @@ import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var usersViewModel: UsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +25,13 @@ class RegisterActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-        usersViewModel = run {
-            ViewModelProviders.of(this).get(UsersViewModel::class.java)
-        }
-
         rg_registerText.setOnClickListener{
             var intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
 
         rg_register.setOnClickListener{
-            RequestHttp.registerUser(this, usersViewModel,rg_name,rg_email,rg_password)
+            RequestHttp.registerUser(this, rg_name,rg_email,rg_password)
 
         }
     }

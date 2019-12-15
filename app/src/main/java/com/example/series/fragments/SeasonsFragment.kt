@@ -1,19 +1,35 @@
 package com.example.series.fragments
 
-
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.series.*
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
+import com.example.series.R
+import com.example.series.SeasonAdapter
+import com.example.series.Seasons
+import org.json.JSONException
+import org.json.JSONObject
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class SeasonsFragment : Fragment() {
+
+    private val JSON_URL =
+        "http://192.168.1.210:8000/api/all/episodes"
+    private var request: JsonArrayRequest? = null
+    private var requestQueue: RequestQueue? = null
+    private var lstSeason: MutableList<Seasons>? = null
+    private var recyclerView: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,24 +38,45 @@ class SeasonsFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.activity_seasons, container, false)
 
-        val seasons: ArrayList<Seasons> = ArrayList<Seasons>()
+        lstSeason = ArrayList()
+        recyclerView = root.findViewById(R.id.recyclerViewSeasons)
 
-
-        val recyclerViewSeasons: RecyclerView = root.findViewById(R.id.recyclerViewSeasons)
-
-
-
-
-        //3º) Indico la disposición en la que se mostrarán los items en el RecyclerView (P.Ej: GridLayout de 2 columnas)
-        val layoutManagerSeasons: RecyclerView.LayoutManager = GridLayoutManager(root.context, 1)
-        recyclerViewSeasons.setLayoutManager(layoutManagerSeasons)
-        //4º) Asigno al RecyclerView el adaptador que relaciona a cada item con su objeto a mostrar.
-        val seasonsAdapter = SeasonsAdapter(seasons)
-        recyclerViewSeasons.setAdapter(seasonsAdapter)
-
+        jsonrequest(root.context)
 
 
         return root
+    }
+
+    fun jsonrequest(context: Context) {
+        request =
+            JsonArrayRequest(JSON_URL,
+                Response.Listener { response ->
+                    var jsonObject: JSONObject?
+                    for (i in 0 until response.length()) {
+                        try {
+                            jsonObject = response.getJSONObject(i)
+                            val season = Seasons("", "", "" ,"", "", "")
+                            season.SeasonNumber = jsonObject.getString("season")
+                            season.EpisodeNumber = jsonObject.getString("episode_number")
+                            season.EpisodeDate = jsonObject.getString("release_date")
+                            season.EpisodeTitle = jsonObject.getString("title")
+                            season.EpisodeRating = jsonObject.getString("rating")
+                            season.EpisodeDescription = jsonObject.getString("description")
+                            lstSeason!!.add(season)
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
+                        }
+                    }
+                    setuprecyclerview(lstSeason as ArrayList<Seasons>)
+                }, Response.ErrorListener { })
+        requestQueue = Volley.newRequestQueue(context)
+        requestQueue!!.add(request)
+    }
+
+    fun setuprecyclerview(lstSeason: ArrayList<Seasons>?) {
+        val myadapter = SeasonAdapter(lstSeason!!)
+        recyclerView!!.layoutManager = LinearLayoutManager(context)
+        recyclerView!!.adapter = myadapter
     }
 
 

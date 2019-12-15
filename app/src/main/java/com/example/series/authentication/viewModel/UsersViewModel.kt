@@ -7,7 +7,6 @@ import com.example.series.authentication.repository.UsersRepository
 
 class UsersViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = UsersRepository(application)
-    val users = repository.getUsers()
 
     fun saveUser(user: User) {
         repository.insert(user)
@@ -17,15 +16,20 @@ class UsersViewModel(application: Application) : AndroidViewModel(application) {
         repository.updateToken(user)
     }
 
-    fun deleteUser(user: User) {
-        repository.deleteUsers(user)
+    fun updateUser(user: User) {
+        repository.updateUser(user)
     }
 
-    fun getToken(email_user: String):String {
-        return repository.getToken(email_user)
+
+    fun getToken(id: Int):String {
+        return repository.getToken(id)
     }
 
-    fun getUser(email_user: String):String {
-        return repository.getUser(email_user)
+    fun getUserId(id: Int):String {
+        return repository.getUserId(id)
+    }
+
+    fun getUserIdLocal(id: Int):Int {
+        return repository.getUserIdLocal(id)
     }
 }

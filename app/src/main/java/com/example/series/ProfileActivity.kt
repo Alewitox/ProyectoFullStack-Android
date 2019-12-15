@@ -1,16 +1,16 @@
 package com.example.series
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.activity_dialog.*
-import kotlinx.android.synthetic.main.activity_dialog.view.*
-import kotlinx.android.synthetic.main.activity_home.*
+import androidx.lifecycle.ViewModelProviders
+import com.example.series.authentication.viewModel.UsersViewModel
 import kotlinx.android.synthetic.main.activity_home.toolbar
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
+
+    private lateinit var usersViewModel: UsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,26 +18,26 @@ class ProfileActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-        editAliasBtn.setOnClickListener {
-            val mDialogView = LayoutInflater.from(this).inflate(R.layout.activity_dialog, null)
-            val mBuilder = AlertDialog.Builder(this)
-                .setView(mDialogView)
-                .setTitle("Editar alias")
-
-            val mAlertDialog = mBuilder.show()
-            mDialogView.dialogButtonAccept.setOnClickListener{
-                mAlertDialog.dismiss()
-                val name = mAlertDialog.dialogAlias.text.toString()
-                aliasTextView.setText(name)
-                profileTextView.setText(name)
-
-            }
-            mDialogView.dialogButtonCancel.setOnClickListener{
-                mAlertDialog.dismiss()
-            }
+        usersViewModel = run {
+            ViewModelProviders.of(this).get(UsersViewModel::class.java)
         }
-    }
 
+
+        logoutClick.setOnClickListener{
+            RequestHttp.logout(this, usersViewModel)
+        }
+
+        deleteAccount.setOnClickListener{
+            RequestHttp.deleteUser(this, usersViewModel)
+        }
+
+        editProfileBtn.setOnClickListener{
+            var intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        RequestHttp.selectUser(this,usersViewModel,profileTextView, headerEmail, aliasTextView, emailTextView)
+    }
 
 
 
