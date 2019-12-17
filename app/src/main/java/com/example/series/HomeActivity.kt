@@ -22,6 +22,8 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
+    internal lateinit var sharedpref: Sharedpref
+
     private val JSON_URL = "http://192.168.1.210:8000/api/all/series"
     private var request: JsonArrayRequest? = null
     private var requestQueue: RequestQueue? = null
@@ -32,6 +34,12 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        sharedpref = Sharedpref(this)
+        if (sharedpref.loadNightModeState() == true) {
+            setTheme(R.style.darkTheme)
+        } else
+            setTheme(R.style.AppTheme)
 
         setSupportActionBar(toolbar)
 
@@ -97,8 +105,8 @@ class HomeActivity : AppCompatActivity() {
             val b = Intent(this, ProfileActivity::class.java)
             startActivity(b)
             return true
-        } else if (id == R.id.menuProfile) {
-            val b = Intent(this, ProfileActivity::class.java)
+        } else if (id == R.id.menuNightMode) {
+            val b = Intent(this, ModeActivity::class.java)
             startActivity(b)
             return true
         }

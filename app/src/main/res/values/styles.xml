@@ -9,7 +9,21 @@
         <item name="android:textColorSecondary">@color/colorWhite</item>
         <item name="colorControlNormal">@color/underline</item>
         <item name="colorControlActivated">@color/underlineActive</item>
+        <item name="backgroundColor">#fcfcfc</item>
+        <item name="cardBackground">#ffffff</item>
+        <item name="textColor">#808080</item>
+        <item name="tintColor">#ffffff</item>
     </style>
 
+    <style name="darkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">#303030</item>
+        <item name="cardBackground">#424242</item>
+        <item name="textColor">#ffffff</item>
+        <item name="tintColor">#ffffff</item>
+    </style>
 
 </resources>
