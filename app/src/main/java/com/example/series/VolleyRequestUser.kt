@@ -43,7 +43,7 @@ class VolleyRequestUser {
                         Toast.makeText(context, "Sesión iniciada correctamente ", Toast.LENGTH_SHORT).show()
                     },
                     Response.ErrorListener {
-                        Toast.makeText(context, "Error al iniciar sesión ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Usuario o contraseña incorrecto ", Toast.LENGTH_SHORT).show()
                     }
                 ){}
                 queue.add(req)

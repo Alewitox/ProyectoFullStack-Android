@@ -20,7 +20,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:background="@drawable/episode_number_square"
-            android:text="1" />
+             />
 
         <TextView
             android:id="@+id/episodedateid"
@@ -29,7 +29,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:textColor="@color/episodesDate"
-            android:text="30 agosto 2018" />
+            />
 
         <TextView
             android:id="@+id/episodetitleid"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
-            android:text="Cargamento" />
+             />
 
         <TextView
             android:id="@+id/episoderatingid"
@@ -49,7 +49,7 @@
             android:background="@drawable/episode_rating_circle"
             android:drawableLeft="@drawable/ic_star_black_24dp"
             android:textColor="#ffffff"
-            android:text="7.4" />
+             />
 
 
     </LinearLayout>
@@ -66,8 +66,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="15dp"
-            android:text="En el primer episodio de la serie, el analista de la CIA Jack Ryan descubre una serie de transferencias de dinero sospechosas que lo llevan, junto a su jefe James Greer, a salir de su despacho para investigar sobre el terreno una grave amenaza a nivel mundial. Hanin comienza a sospechar de los asuntos que su marido se trae entre manos cuando recibe en casa a un misterioso extranjero." />
+            android:layout_marginBottom="15dp" />
 
     </LinearLayout>
 
